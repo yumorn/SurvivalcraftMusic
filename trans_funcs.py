@@ -1,5 +1,4 @@
-def transToSurvivalCraft(source, shift=0, extend=True):
-    source += '   '
+def transCore(source, shift):
     def tuneToDigit(tune):
         return {'1':0, 'a':1, '2':2, 'b':3, '3':4, '4':5, 'd':6, '5':7, 'e':8, '6':9, 'f':10, '7':11}[tune]
     pitch = []
@@ -32,28 +31,22 @@ def transToSurvivalCraft(source, shift=0, extend=True):
             oct = 12
     pitch = ''.join(pitch)
     octave = ''.join(octave)
-    l = len(pitch)
-    if extend:
-        times = 256 // l
-        return pitch * times, octave * times, l
-    else:
-        return pitch, octave, l
+    return pitch, octave
 
-def split(source):
-    A = []
-    B = []
-    turnA = True
-    oct = ''
-    for tune in source:
-        if tune == ' ':
-            continue
-        elif tune == '+' or tune == '-':
-            oct = tune
-        else:
-            (A if turnA else B).append(oct + tune)
-            turnA = not turnA
-            oct = ' '
-    # 确保两者等长
-    if not turnA:
-        B += ' 0'
-    return ''.join(A), ''.join(B)
+def split(string, turn_num=1, single_length=256):
+    length = len(string)
+    group_total_length = turn_num * single_length
+    group_num = (length + group_total_length - 1) // group_total_length
+    res = ['' for i in range(group_num * turn_num)]
+    for i, c in enumerate(string):
+        group_index = i // group_total_length
+        group_inner_index = i % turn_num
+        res[group_index * turn_num + group_inner_index] += c
+    return res
+
+def transToSurvivalCraft(source, shift=0, turn_num=1):
+    pitch, octave = transCore(source, shift)
+    pitch = split(pitch, turn_num)
+    octave = split(octave, turn_num)
+    for i in range(len(pitch)):
+        print((pitch[i], octave[i], len(pitch[i])))

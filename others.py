@@ -1,4 +1,4 @@
-from trans_funcs import transToSurvivalCraft, split
+from trans_funcs import transToSurvivalCraft
 
 PlayingLove =\
 '123-50032120021-7-500234300'+\
@@ -8,7 +8,7 @@ PlayingLove =\
 '-5-6-556531004542-700'+\
 '1-721-712130021232-6-7100'+\
 '1213003452001213002321-700'
-#print(transToSurvivalCraft(PlayingLove))
+transToSurvivalCraft(PlayingLove)
 IAndMyCountry =\
 '56543210-5013+1763500067654320-60'+\
 '-7-6-5512300056543210-5013+17+2+16000'+\
@@ -16,7 +16,7 @@ IAndMyCountry =\
 '+1+2+3+2+167536000543207665304021'+\
 '1000+1+2+3+2+167635000+1+2+3+2+16'+\
 '76360054320-7-6-53050+2+1+1000000000000000'
-#print(transToSurvivalCraft(IAndMyCountry))
+transToSurvivalCraft(IAndMyCountry)
 MyCountry =\
 '12-6-5506035+1650005065323053-612000'+\
 '2531-6-5-60265630201235+16505-6124066'+\
@@ -26,4 +26,4 @@ MyCountry =\
 '2531-6-5-60265630201235+16505-6124066'+\
 '5632100055+10+2+1656053+165230'+\
 '356+1+2+3+2+1+2765356+2+1'
-#print(transToSurvivalCraft(MyCountry))
+transToSurvivalCraft(MyCountry)

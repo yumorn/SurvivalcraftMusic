@@ -1,4 +1,4 @@
-from trans_funcs import transToSurvivalCraft, split
+from trans_funcs import transToSurvivalCraft
 
 SecretBase = \
 ' 0 6+1+2'+\
@@ -35,10 +35,8 @@ SecretBase = \
 ' 0 0 0 0 0 0 0 0   0 0 0 0 0 0 0 0'+\
 '+2 0+1+1+0 0+4 0   5 0 0 0'
 
-SecretBaseA, SecretBaseB = split(SecretBase)
 shift = 7+10
-print(transToSurvivalCraft(SecretBaseA, shift))
-print(transToSurvivalCraft(SecretBaseB, shift))
+transToSurvivalCraft(SecretBase, shift, 2)
 
 SecretBase = \
 ' 0 0 0 0'+\
@@ -74,9 +72,7 @@ SecretBase = \
 ' 5 0 5 5 0 0 0 0  +1 0+4 0+1 0+2+3'+\
 '+2 0+1+1+0 0+0 0  +0 0 0 0 0 0+2+3'+\
 ' 0 0 0 0 0 0 0 0  +1 0 0 0'
-SecretBaseA, SecretBaseB = split(SecretBase)
-print(transToSurvivalCraft(SecretBaseA, shift))
-print(transToSurvivalCraft(SecretBaseB, shift))
+transToSurvivalCraft(SecretBase, shift, 2)
 
 SecretBaseChord =\
 ' 0 0'+\
@@ -96,7 +92,7 @@ SecretBaseChord =\
 ' 0 0 0 0 0 0 0 0   0 0 0 0 0 0 0 0'+\
 ' 0 0 0 0 0 0 0 0   0 0 0 0 1 0 3 0'+\
 ' 0 0 0 0 0 0-2 0  -1-5 2 1 3 0'
-print(transToSurvivalCraft(SecretBaseChord, shift))
+transToSurvivalCraft(SecretBaseChord, shift)
 SecretBaseChord =\
 ' 0 0'+\
 ' 1 0 0 0-7 0 0 0  -6 0 0 0-5 0 0 0'+\
@@ -115,7 +111,7 @@ SecretBaseChord =\
 '_4 0-4-6_5 0-7-5  _6 0-6-3_5 0-7-5'+\
 '_4 0-4-6_5 0-7-5  -1-5 1-5-5 0 1 0'+\
 ' 0 0 6 0 0 0 7 0   0 0 0 0 1 0'
-print(transToSurvivalCraft(SecretBaseChord, shift))
+transToSurvivalCraft(SecretBaseChord, shift)
 SecretBaseChord =\
 ' 0 0'+\
 '-6 0 0 0-5 0 0 0  -3 0 0 0-3 0 0 0'+\
@@ -134,4 +130,4 @@ SecretBaseChord =\
 ' 0_4-1-1 0_5-2_7   0-3-1_6 0_7-2_5'+\
 ' 0_4-1-1 0_5-2_7   0-1-5-1+5 0-5 0'+\
 '-4 1 4 1-5 5 5 0   0 0 0 0+3 0'
-print(transToSurvivalCraft(SecretBaseChord, shift))
+transToSurvivalCraft(SecretBaseChord, shift)
