@@ -5,8 +5,10 @@ def transCore(source, shift):
     octave = []
     oct = 12
     for tune in source:
-        if tune == ' ':
+        if tune in ' \t\r\n':
             continue
+        elif tune == '^':
+            oct = 48
         elif tune == '*':
             oct = 36
         elif tune == '+':
