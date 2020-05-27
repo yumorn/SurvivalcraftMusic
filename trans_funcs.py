@@ -17,6 +17,8 @@ def transCore(source, shift):
             oct = 0
         elif tune == '_':
             oct = -12
+        elif tune == '.':
+            oct = -24
         else:
             if tune == '0':
                 pitch.append('F')
@@ -35,6 +37,8 @@ def transCore(source, shift):
     octave = ''.join(octave)
     return pitch, octave
 
+# split('0123456798', 1, 3) -> ['012', '345', '678', '9']
+# split('0123456798', 2, 3) -> ['024', '135', '68', '79']
 def split(string, turn_num=1, single_length=256):
     length = len(string)
     group_total_length = turn_num * single_length
@@ -52,3 +56,6 @@ def transToSurvivalCraft(source, shift=0, turn_num=1):
     octave = split(octave, turn_num)
     for i in range(len(pitch)):
         print((pitch[i], octave[i], len(pitch[i])))
+
+if __name__ == "__main__":
+    print(split('0123456789', 2, 3))
